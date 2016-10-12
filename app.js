@@ -4,13 +4,17 @@ const http = require('http')
 const port = 3000
 
 const requestHandler = (request, response) => {  
-	console.log(request.url)
+	var req = request.url.split("/")[1]
+	var [path, args] = req.split("#")
+
+	// Converts / to /index.html
+	path = path == ''? 'index.html' : path
 
 	// Is it a great idea to hard code a header? No, no it is not
 	response.setHeader("Content-Type", "text/html")
 	response.setHeader("Server", "custom (node.js)")
 
-	response.end(require("./pages.js")("./pages/index.html"))
+	response.end(require("./pages.js")("./pages/" + path))
 }
 
 const server = http.createServer(requestHandler)
@@ -20,5 +24,5 @@ server.listen(port, (err) => {
 		return console.log('something bad happened', err)
 	}
 
-	console.log(`server is listening on ${port}`)
+	console.log(`server is listening at http://localhost:${port}`)
 })
