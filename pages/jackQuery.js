@@ -33,4 +33,4 @@ function Tag(x) {
 	}
 }
 
-module.exports = function(name) { return new Tag(name); }
+$ = function(name) { return new Tag(name); }
