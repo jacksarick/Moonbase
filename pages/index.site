@@ -38,22 +38,26 @@
 				</nav>
 			</div>
 			<div class="column is-three-quarters">
-				<h1 class="title is-1">Moonbase</h1>
+				<div class="control is-grouped">
+					<h1 class="title is-1 ">Moonbase</h1>
+					<input class="input is-primary is-expanded" type="text" placeholder="Search...">
+				</div>
+				
 				<table class="table is-striped">
 					<tr>
-						<th>Firstname</th>
-						<th>Lastname</th>
-						<th>Age</th>
+						<th>Name</th>
+						<th>Command</th>
+						<th></th>
 					</tr>
 					<tr>
-						<td>Jill</td>
-						<td>Smith</td>
-						<td>50</td>
+						<td>Homebrew</td>
+						<td><pre>brew update && upgrade</pre></td>
+						<td><a class="can-run button is-primary" href="#job12#run-once">Run</a></td>
 					</tr>
 					<tr>
 						<td>Eve</td>
 						<td>Jackson</td>
-						<td>94</td>
+						<td></td>
 					</tr>
 				</table> 
 			</div>
