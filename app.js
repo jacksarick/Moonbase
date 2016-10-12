@@ -8,7 +8,7 @@ const requestHandler = (request, response) => {
 	var [path, args] = req.split("#")
 
 	// Converts / to /index.html
-	path = path == ''? 'index.html' : path
+	path = path == ''? 'index.site' : path
 
 	try {
 		// Is it a great idea to hard code a header? No, no it is not
