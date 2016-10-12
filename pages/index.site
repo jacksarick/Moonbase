@@ -40,7 +40,7 @@
 			<div class="column is-three-quarters">
 				<div class="control is-grouped">
 					<h1 class="title is-1 ">Moonbase</h1>
-					<input class="input is-primary is-expanded" type="text" placeholder="Search...">
+					<input class="input is-primary is-expanded left-space" type="text" placeholder="Search...">
 				</div>
 				
 				<table class="table is-striped">
