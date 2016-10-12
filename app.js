@@ -10,11 +10,18 @@ const requestHandler = (request, response) => {
 	// Converts / to /index.html
 	path = path == ''? 'index.html' : path
 
-	// Is it a great idea to hard code a header? No, no it is not
-	response.setHeader("Content-Type", "text/html")
-	response.setHeader("Server", "custom (node.js)")
+	try {
+		// Is it a great idea to hard code a header? No, no it is not
+		response.setHeader("Content-Type", "text/html")
+		response.setHeader("Server", "custom (node.js)")
 
-	response.end(require("./pages.js")("./pages/" + path))
+		response.end(require("./pages.js")("./pages/" + path))
+	}
+
+	catch (err) {
+		response.statusCode = 404
+		response.end([] + err) //HAHAHA WHAT?!?!?
+	}
 }
 
 const server = http.createServer(requestHandler)
