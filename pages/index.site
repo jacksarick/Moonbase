@@ -14,26 +14,26 @@
 					<p class="panel-heading">
 						At a glance...
 					</p>
-					<div class="panel-block" href="#">
-						Running Job <a class="button can-cancel is-primary is-small is-loading">Loading</a>
+					<div class="panel-block">
+						Running Job <a class="can-cancel button is-primary is-small is-loading-" href="#"></a>
 					</div>
-					<div class="panel-block" href="#">
-						Running Job <a class="button can-cancel is-primary is-small is-loading">Loading</a>
+					<div class="panel-block">
+						Running Job <a class="can-cancel button is-primary is-small is-loading-" href="#"></a>
 					</div>
-					<div class="panel-block" href="#">
-						Running Job <a class="button can-cancel is-primary is-small is-loading">Loading</a>
+					<div class="panel-block">
+						Running Job <a class="can-cancel button is-primary is-small is-loading-" href="#"></a>
 					</div>
-					<div class="panel-block" href="#">
-						Running Job <a class="button can-cancel is-primary is-small is-loading">Loading</a>
+					<div class="panel-block">
+						Running Job <a class="can-cancel button is-primary is-small is-loading-" href="#"></a>
 					</div>
-					<div class="panel-block" href="#">
-						Running Job <a class="button can-cancel is-primary is-small is-loading">Loading</a>
+					<div class="panel-block">
+						Running Job <a class="can-cancel button is-primary is-small is-loading-" href="#"></a>
 					</div>
-					<div class="panel-block" href="#">
-						Running Job <a class="button can-cancel is-primary is-small is-loading">Loading</a>
+					<div class="panel-block">
+						Running Job <a class="can-cancel button is-primary is-small is-loading-" href="#"></a>
 					</div>
-					<div class="panel-block" href="#">
-						Running Job <a class="button can-cancel is-primary is-small is-loading">Loading</a>
+					<div class="panel-block">
+						Running Job <a class="can-cancel button is-primary is-small is-loading-" href="#"></a>
 					</div>
 				</nav>
 			</div>
@@ -44,7 +44,7 @@
 		</div>
 
 		<script type="text/javascript">
-			
+
 		</script>
 	</body>
 </html>
