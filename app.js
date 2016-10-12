@@ -1,5 +1,6 @@
 `use strict`
 
+const util = require('./utils.js')
 const http = require('http')
 const port = 3000
 
@@ -11,8 +12,7 @@ const requestHandler = (request, response) => {
 	path = path == ''? 'index.site' : path
 
 	try {
-		// Is it a great idea to hard code a header? No, no it is not
-		response.setHeader("Content-Type", "text/html")
+		response.setHeader("Content-Type", util.type(path))
 		response.setHeader("Server", "custom (node.js)")
 
 		response.end(require("./pages.js")("./pages/" + path))
