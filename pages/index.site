@@ -15,25 +15,25 @@
 						At a glance...
 					</p>
 					<div class="panel-block">
-						Running Job <a class="can-cancel button is-primary is-small is-loading-" href="#"></a>
+						Running Job <a class="can-cancel button is-primary is-small" href="#job12#cancel"></a>
 					</div>
 					<div class="panel-block">
-						Running Job <a class="can-cancel button is-primary is-small is-loading-" href="#"></a>
+						Running Job <a class="can-cancel button is-primary is-small" href="#job12#cancel"></a>
 					</div>
 					<div class="panel-block">
-						Running Job <a class="can-cancel button is-primary is-small is-loading-" href="#"></a>
+						Running Job <a class="can-cancel button is-primary is-small" href="#job12#cancel"></a>
 					</div>
 					<div class="panel-block">
-						Running Job <a class="can-cancel button is-primary is-small is-loading-" href="#"></a>
+						Running Job <a class="can-cancel button is-primary is-small" href="#job12#cancel"></a>
 					</div>
 					<div class="panel-block">
-						Running Job <a class="can-cancel button is-primary is-small is-loading-" href="#"></a>
+						Running Job <a class="can-cancel button is-primary is-small" href="#job12#cancel"></a>
 					</div>
 					<div class="panel-block">
-						Running Job <a class="can-cancel button is-primary is-small is-loading-" href="#"></a>
+						Running Job <a class="can-cancel button is-primary is-small" href="#job12#cancel"></a>
 					</div>
 					<div class="panel-block">
-						Running Job <a class="can-cancel button is-primary is-small is-loading-" href="#"></a>
+						Running Job <a class="can-cancel button is-primary is-small" href="#job12#cancel"></a>
 					</div>
 				</nav>
 			</div>
