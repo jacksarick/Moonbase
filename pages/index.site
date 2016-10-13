@@ -8,7 +8,11 @@
 		<script src="jackQuery.js"></script>
 	</head>
 	<body>
+
+		<!-- Main Content -->
 		<div class="columns">
+
+			<!-- At a glance -->
 			<div class="column">
 				<nav class="panel">
 					<p class="panel-heading">
@@ -37,12 +41,17 @@
 					</div>
 				</nav>
 			</div>
+
+			<!-- Content -->
 			<div class="column is-three-quarters">
+
+				<!-- Title -->
 				<div class="control is-grouped">
 					<h1 class="title is-1 ">Moonbase</h1>
 					<input class="input is-primary is-expanded left-space" type="text" placeholder="Search...">
 				</div>
 				
+				<!-- List of commands -->
 				<table class="table is-striped">
 					<tr>
 						<th>Name</th>
