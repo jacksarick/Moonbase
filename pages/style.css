@@ -11,6 +11,10 @@ body {
 	padding-top: 1em;
 }
 
+pre {
+	background: inherit;
+}
+
 nav {
 	background: #FAFAFA;
 }
