@@ -23,9 +23,10 @@ def compose(filename, replacements)
 		file.gsub!(/<<<([^>]+)>>>/) {|_| compose $1}
 		
 		# Substitute replacements if dictionary included
-		# file = replacements != nil ? file.gsub(/\{\{\{([^\}]+)\}\}\}/) {|_| replacements[$1.strip]} : file
 		if replacements != nil
-			file.gsub!(/\[\[\[([^\]]+)\]\]\]/) {|_| repeat_block $1, replacements}
+			file.gsub!(/\[\[\[([^\]]+)\]\]\]/) {|_|
+				repeat_block $1, replacements
+			}
 		end
 
 		return file

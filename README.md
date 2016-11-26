@@ -1,2 +1,2 @@
 # Moonbase
-Honestly, I'm not quite sure yet. Something about management...
+Honestly, I'm not quite sure yet. It has something to do about managing the UCC Student Server Space, but that's a little hazy. Mostly, I'm learning fullstack development, and picking up a new language.
