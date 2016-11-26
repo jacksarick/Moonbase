@@ -64,8 +64,8 @@
 						<td><a class="can-run button is-primary" href="#job12#run-once">Run</a></td>
 					</tr>
 					<tr>
-						<td>Eve</td>
-						<td>Jackson</td>
+						<td></td>
+						<td><a class="can-run button is-primary ">Run</a></td>
 						<td></td>
 					</tr>
 				</table> 
