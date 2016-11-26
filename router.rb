@@ -7,7 +7,8 @@ SERVER_ROOT = "./site"
 server = TCPServer.new('localhost', 3000)
 print "server @ http://localhost:3000\n"
 
-def compose(filename, replacements = nil, render_md = false)
+# The composition function that is really the magic of this whole operation
+def compose(filename, replacements)
 	# Read the file
 	begin
 		file = File.read(SERVER_ROOT + filename.strip)
@@ -26,16 +27,34 @@ def compose(filename, replacements = nil, render_md = false)
 	end
 end
 
-def http_response(response)
+# Simple function for composing HTTP responses
+def http_response(response, ending)
 	return "HTTP/1.1 200 OK\r\n" +
 		"Server: Custom (ruby)\r\n" +
-		"Content-Type: text/html\r\n" +
+		"Content-Type: text/#{ending}\r\n" +
 		"Content-Length: #{response.bytesize}\r\n" +
 		"Connection: close\r\n" +
 		"\r\n" +
 		response
 end
 
+# Compund function that mainly determines file type
+def http_compose(filename, replace = nil)
+	content = compose filename, replace
+
+	type = filename.split(".").last
+
+	case 
+	when "html", "css"
+		return http_response content, type
+	when "js"
+		return http_response content, "js"
+	else
+		return http_response content, "plain"
+	end
+end
+
+# Main loop that runs eternally
 loop do
 
 	socket = server.accept
@@ -47,9 +66,9 @@ loop do
 	if request[0] == "GET"
 		case request[1]
 		when "/"
-			socket.print http_response compose "/index.html"
+			socket.print http_compose "/index.html"
 		else
-			socket.print http_response compose request[1]
+			socket.print http_compose request[1]
 		end
 	else
 		socket.print "Only GET requests are supported right now"
