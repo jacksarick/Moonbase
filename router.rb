@@ -1,3 +1,5 @@
+#!/usr/bin/env ruby
+
 require "socket"
 
 SERVER_ROOT = "./site"
@@ -8,7 +10,7 @@ print "server @ http://localhost:3000\n"
 def compose(filename, replacements = nil, render_md = false)
 	# Read the file
 	begin
-		file = File.read(PAGE_ROOT + filename.strip)
+		file = File.read(SERVER_ROOT + filename.strip)
 
 		# Load includes
 		file = file.gsub(/<<<([^>]+)>>>/) {|_| compose($1)}
@@ -18,8 +20,9 @@ def compose(filename, replacements = nil, render_md = false)
 
 		return file
 
-	rescue
-		return "Error 404: file not found"
+	rescue Exception => e
+		print e.message
+		return "Error 404: file " + filename + " not found"
 	end
 end
 
@@ -44,7 +47,7 @@ loop do
 	if request[0] == "GET"
 		case request[1]
 		when "/"
-			socket.print http_response compose "/index.html", {"ideal-impressions" => 700}
+			socket.print http_response compose "/index.html"
 		else
 			socket.print http_response compose request[1]
 		end
