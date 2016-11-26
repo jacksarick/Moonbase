@@ -6,6 +6,7 @@ require './lib/composer.rb'
 # Load config
 config = read_config("config.yml")
 PORT = config['port']
+read_config("projects.yml").map { |e| puts e }
 
 # Start the server
 server = TCPServer.new('localhost', PORT)
@@ -25,7 +26,7 @@ loop do
 		# Special index case
 		case request[1].split('').last
 		when '/'
-			socket.print http_compose request[1] + 'index.html'
+			socket.print http_compose request[1] + 'index.html', read_config("projects.yml")
 		else
 			socket.print http_compose request[1]
 		end

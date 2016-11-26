@@ -12,38 +12,8 @@
 		<!-- Main Content -->
 		<div class="columns">
 
-			<!-- At a glance -->
-			<div class="column">
-				<nav class="panel">
-					<p class="panel-heading">
-						At a glance...
-					</p>
-					<div class="panel-block">
-						Running Job <a class="can-cancel button is-primary is-small" href="#job12#cancel"></a>
-					</div>
-					<div class="panel-block">
-						Running Job <a class="can-cancel button is-primary is-small" href="#job12#cancel"></a>
-					</div>
-					<div class="panel-block">
-						Running Job <a class="can-cancel button is-primary is-small" href="#job12#cancel"></a>
-					</div>
-					<div class="panel-block">
-						Running Job <a class="can-cancel button is-primary is-small" href="#job12#cancel"></a>
-					</div>
-					<div class="panel-block">
-						Running Job <a class="can-cancel button is-primary is-small" href="#job12#cancel"></a>
-					</div>
-					<div class="panel-block">
-						Running Job <a class="can-cancel button is-primary is-small" href="#job12#cancel"></a>
-					</div>
-					<div class="panel-block">
-						Running Job <a class="can-cancel button is-primary is-small" href="#job12#cancel"></a>
-					</div>
-				</nav>
-			</div>
-
 			<!-- Content -->
-			<div class="column is-three-quarters">
+			<div class="column is-whole">
 
 				<!-- Title -->
 				<div class="control is-grouped">
@@ -54,53 +24,48 @@
 				<!-- List of commands -->
 				<table class="table is-striped">
 					<tr>
-						<th>Name</th>
-						<th>Command</th>
+						<th>Student</th>
+						<th>Project name</th>
 						<th></th>
 					</tr>
-					<tr onclick="$('#modal-0').show()">
-						<td>Homebrew</td>
-						<td><pre>brew update && upgrade</pre></td>
-						<td><a class="can-run button is-primary" href="#job12#run-once">Run</a></td>
-					</tr>
 					<tr>
-						<td></td>
-						<td><a class="can-run button is-primary ">Run</a></td>
-						<td></td>
+						<td><input type="input" name="" placeholder="Student"></td>
+						<td><input type="input" name="" placeholder="Repository"></td>
+						<td><a class="can-run button is-primary ">Add New</a></td>
 					</tr>
+					[[[<!-- Project row -->
+					<tr>
+						<td>{{{ user }}}</td>
+						<td>{{{ project }}}</td>
+						<td><a class="can-run button is-primary" onclick="$('#{{{ short }}}-modal').show()">Edit</a></td>
+					</tr>
+
+					<!-- Matching Modal -->
+					<div class="modal" id="{{{ short }}}-modal">
+						<div class="modal-background"></div>
+							<div class="modal-card">
+								<header class="modal-card-head">
+								<p class="modal-card-title">{{{ project }}}</p>
+							</header>
+
+							<section class="modal-card-body">
+								<h2 class="title is-2">General</h2>
+								<b>Repo: </b> <pre contenteditable>{{{ repo }}}</pre><br>
+								<b>Description: </b> <span>{{{ desc }}}</span><br>
+								<br><br>
+								<h2 class="title is-2">Controls: </h2><br>
+								<b>Update project: </b><a class="can-run button is-primary" href="#{{{ short }}}-update">Update</a><br>
+								<b>Stop project: </b><a class="can-cancel button is-primary" href="#{{{ short }}}-update"></a>
+							</section>
+
+							<footer class="modal-card-foot">
+								<a class="button is-primary">Save changes</a>
+								<a class="button" onclick="$('#{{{ short }}}-modal').hide()">Cancel</a>
+							</footer>
+						</div>
+					</div>]]]
 				</table> 
 			</div>
 		</div>
-		
-		<!-- Modals -->
-		<modals>
-			<div class="modal" id="modal-0">
-				<div class="modal-background"></div>
-					<div class="modal-card">
-						<header class="modal-card-head">
-						<p class="modal-card-title">Homebrew</p>
-					</header>
-
-					<section class="modal-card-body">
-						<b>Command: </b> <pre contenteditable>brew update && upgrade</pre><br>
-
-						<b>Continuous? </b>
-						<label class="switch">
-							<input type="checkbox">
-							<div class="slider"></div>
-						</label>
-					</section>
-
-					<footer class="modal-card-foot">
-						<a class="button is-primary">Save changes</a>
-						<a class="button" onclick="$('#modal-0').hide()">Cancel</a>
-					</footer>
-				</div>
-			</div>
-		</modals>
-
-		<script type="text/javascript">
-
-		</script>
 	</body>
 </html>
