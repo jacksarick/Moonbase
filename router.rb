@@ -1,7 +1,7 @@
 #!/usr/bin/env ruby
 
 require 'socket'
-require './composer.rb'
+require './lib/composer.rb'
 
 # Load config
 config = read_config("config.yml")

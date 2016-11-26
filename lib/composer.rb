@@ -1,4 +1,4 @@
-require './utility.rb'
+require_relative './utility.rb'
 
 # Load config
 config = read_config("config.yml")
