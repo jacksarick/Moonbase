@@ -1,11 +1,14 @@
 #!/usr/bin/env ruby
 
-require "socket"
+require 'socket'
+require './utility.rb'
 
-SERVER_ROOT = "./site"
+config = read_config("config.yml")
+SERVER_ROOT = config['root']
+PORT = config['port']
 
-server = TCPServer.new('localhost', 3000)
-print "server @ http://localhost:3000\n"
+server = TCPServer.new('localhost', PORT)
+print "server @ http://localhost:#{PORT}\n"
 
 # The composition function that is really the magic of this whole operation
 def compose(filename, replacements)
@@ -42,15 +45,15 @@ end
 def http_compose(filename, replace = nil)
 	content = compose filename, replace
 
-	type = filename.split(".").last
+	type = filename.split('.').last
 
 	case 
-	when "html", "css"
+	when 'html', 'css'
 		return http_response content, type
-	when "js"
-		return http_response content, "js"
+	when 'js'
+		return http_response content, 'js'
 	else
-		return http_response content, "plain"
+		return http_response content, 'plain'
 	end
 end
 
@@ -61,12 +64,12 @@ loop do
 	request = socket.gets.split
 
 	print request
-	print "\n"
+	print '\n'
 
-	if request[0] == "GET"
+	if request[0] == 'GET'
 		case request[1]
-		when "/"
-			socket.print http_compose "/index.html"
+		when '/'
+			socket.print http_compose '/index.html'
 		else
 			socket.print http_compose request[1]
 		end
