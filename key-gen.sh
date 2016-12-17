@@ -13,7 +13,8 @@ fi
 
 # Read new password
 echo -n "Please enter new password: "
-read PASSWORD
+read -s PASSWORD
+echo ""
 
 # Fail on empty
 if [ "$PASSWORD" == "" ]; then
@@ -23,7 +24,8 @@ fi
 
 # Read new re-password
 echo -n "Please re-enter new password: "
-read REPASSWORD
+read -s REPASSWORD
+echo ""
 
 # Fail on empty or different
 if [ "$REPASSWORD" == "" ] || [ "$REPASSWORD" != "$PASSWORD" ]; then
