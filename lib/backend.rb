@@ -11,7 +11,7 @@ class Backend
 
 	def authenticate(password)
 
-		if password == "" or " "
+		if password == "" or password == " "
 			@socket.print http_compose "/no-auth.html"
 			return false
 
