@@ -7,8 +7,8 @@ class Frontend
 
 	def response(request)
 
-		# Special index cases
-		if ["/", "/dashboard.html"].include? request[1]
+		# Special index cases to route to index.html
+		if ["/", "/dash", "/dashboard.html"].include? request[1]
 			request[1] = '/index.html'
 		end
 

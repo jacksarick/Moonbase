@@ -2,8 +2,6 @@ require_relative './frontend.rb'
 require_relative './backend.rb'
 
 def app(server)
-	# Backend.new()
-
 	# Main loop that runs eternally
 	loop do
 
@@ -11,13 +9,21 @@ def app(server)
 		socket = server.accept
 		request = socket.gets.split
 
-		print "#{request}\n"
+		headers = {}
+		while line = socket.gets.split(' ', 2)
+			break if line[0] == "" 
+			headers[line[0].chop] = line[1].strip 
+		end
+
+		data = socket.read(headers["Content-Length"].to_i)
+		# string -> array tuples -> flat array -> hash
+		data = Hash[*data.split(",").map { |item| item.split "=" }.flatten]
 
 		# Sort by type
 		if request[0] == 'GET'
 			Frontend.new(socket).response(request)
 		else
-			Backend.new(socket).response(request)
+			Backend.new(socket).response(request, data)
 		end
 	end
 end

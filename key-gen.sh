@@ -32,5 +32,5 @@ if [ "$REPASSWORD" == "" ] || [ "$REPASSWORD" != "$PASSWORD" ]; then
 fi
 
 echo "Password confirmed"
-echo $(md5 -qs $PASSWORD) > $KEYFILE
+echo -n $(md5 -qs $PASSWORD) > $KEYFILE
 echo "Password change successful"
