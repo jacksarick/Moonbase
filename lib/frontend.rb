@@ -6,13 +6,18 @@ class Frontend
 	end
 
 	def response(request)
+
 		# Special index case
-		case request[1].split('').last
-		when '/'
-			database = read_YAML(read_YAML("config.yml")["database"])
-			@socket.print http_compose request[1] + 'index.html', database
-		else
-			@socket.print http_compose request[1]
+		if request[1] == "/"
+			print "1"
+			request[1] = '/index.html'
 		end
+
+		print "###########################"
+		print request[1]
+		print "###########################"
+
+		database = read_YAML(read_YAML("config.yml")["database"])
+		@socket.print http_compose request[1], database
 	end
 end
