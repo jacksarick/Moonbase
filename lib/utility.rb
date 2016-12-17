@@ -1,5 +1,5 @@
 require 'yaml'
 
-def read_config(file)
+def read_YAML(file)
 	return YAML.load_file(file)
 end

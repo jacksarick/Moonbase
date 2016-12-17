@@ -1,7 +1,7 @@
 require_relative './utility.rb'
 
 # Load config
-config = read_config("config.yml")
+config = read_YAML("config.yml")
 SERVER_ROOT = config['root']
 
 def repeat_block(block, replacements)

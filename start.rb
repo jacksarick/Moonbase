@@ -5,7 +5,7 @@ require './lib/app.rb'
 require './lib/http-server.rb'
 
 # Load config
-config = read_config("config.yml")
+config = read_YAML("config.yml")
 PORT = config['port']
 
 server = HTTP_Server.new(3000)
