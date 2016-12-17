@@ -1,29 +1,30 @@
 - project: Beachball
   user: Jack Sarick
   short: bball
-  repo: https://github.com/jacksarick/beachball
+  repo: jacksarick/beachball
   desc: Like pastebin, but expiries are based on visits
 
 - project: Facejournal
   user: Jack Sarick
   short: fj
-  repo: https://github.com/jacksarick/fj
+  repo: jacksarick/fj
   desc: Facebook clone made in COBOL
 
 - project: Instasnap
   user: Jack Sarick
   short: insta
-  repo: https://github.com/jacksarick/insta
+  repo: jacksarick/insta
   desc: A Snapchat/Instagram hybrid written in TI-BASIC
 
 - project: Skyppy
   user: Jack Sarick
   short: skyppy
-  repo: https://github.com/jacksarick/skyppy
+  repo: jacksarick/skyppy
   desc: Like Skype, but made with a FORTRAN frontend and CSS backend
 
 - project: Gitnexus
   user: Jack Sarick
   short: gitnex
-  repo: https://github.com/jacksarick/gitnex
+  repo: jacksarick/gitnex
   desc: Similar to github, except you can only contribute to other peopl's work
+
