@@ -17,7 +17,7 @@ def app(server)
 
 		data = socket.read(headers["Content-Length"].to_i)
 		# string -> array tuples -> flat array -> hash
-		data = Hash[*data.split(",").map { |item| item.split "=" }.flatten]
+		data = Hash[*data.split("&").map { |item| item.split "=" }.flatten]
 
 		# Sort by type
 		if request[0] == 'GET'
