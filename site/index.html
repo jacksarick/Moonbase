@@ -1,8 +1,24 @@
-<center>
-	<h1>Login</h1>
-	<form method="POST" action="/dash">
-		<label>Password: </label>
-		<input type="password" name="password" required>
-		<input type="submit" value="Submit">
-	</form>
-</center>
+<html>
+	<head>
+		<title>Moonbase</title>
+		<link rel="stylesheet" type="text/css" href="./bulma.min.css">
+		<!-- <link rel="stylesheet" type="text/css" href="./style.css"> -->
+
+		<script src="jackQuery.js"></script>
+	</head>
+	<body>
+		<section class="hero is-white is-fullheight">
+			<div class="hero-body">
+				<div class="container">
+					<h1 class="title">Login</h1>
+					<form method="POST" action="/dash">
+						<p class="control has-addons">
+							<input class="input is-info is-large" type="password" name="password" placeholder="Password..." required>
+						<input class="button is-info is-large" type="submit" value="Submit">
+						</p>
+					</form>
+				</div>
+			</div>
+		</section>
+	</body>
+</html>
