@@ -1,6 +1,8 @@
 require_relative './frontend.rb'
 
 def app(server)
+	# Backend.new()
+
 	# Main loop that runs eternally
 	loop do
 
