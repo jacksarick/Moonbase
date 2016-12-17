@@ -1,4 +1,4 @@
-require './lib/composer.rb'
+require_relative './frontend.rb'
 
 def app(server)
 	# Main loop that runs eternally
@@ -12,13 +12,7 @@ def app(server)
 
 		# Sort by type
 		if request[0] == 'GET'
-			# Special index case
-			case request[1].split('').last
-			when '/'
-				socket.print http_compose request[1] + 'index.html', read_config("projects.yml")
-			else
-				socket.print http_compose request[1]
-			end
+			Frontend.new(socket).response(request)
 		else
 			socket.print "Only GET requests are supported right now"
 			socket.close
