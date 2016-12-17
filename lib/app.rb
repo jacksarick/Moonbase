@@ -1,4 +1,5 @@
 require_relative './frontend.rb'
+require_relative './backend.rb'
 
 def app(server)
 	# Backend.new()
@@ -16,8 +17,7 @@ def app(server)
 		if request[0] == 'GET'
 			Frontend.new(socket).response(request)
 		else
-			socket.print "Only GET requests are supported right now"
-			socket.close
+			Backend.new(socket).response(request)
 		end
 	end
 end

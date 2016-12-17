@@ -12,7 +12,7 @@ class Frontend
 			request[1] = '/index.html'
 		end
 
-		database = read_YAML(read_YAML("config.yml")["database"])
-		@socket.print http_compose request[1], database
+		# database = read_YAML(read_YAML("config.yml")["database"])
+		@socket.print http_compose request[1]
 	end
 end

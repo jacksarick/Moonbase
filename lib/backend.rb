@@ -1,6 +1,6 @@
 require_relative './composer.rb'
 
-class Frontend
+class Backend
 	def initialize(socket)
 		@socket = socket
 	end
