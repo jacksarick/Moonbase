@@ -1,0 +1,14 @@
+#!/usr/bin/env ruby
+
+require 'socket'
+require './lib/app.rb'
+require './lib/http-server.rb'
+
+# Load config
+config = read_YAML("config.yml")
+PORT = ARGV[0] || config['port']
+
+server = HTTP_Server.new(PORT)
+server = server.start()
+
+app(server)
