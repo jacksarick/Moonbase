@@ -2,3 +2,4 @@ port: 3000
 root: site
 user-key: ./user/login.key
 database: ./user/projects.yml
+projects: projects
