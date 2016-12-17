@@ -5,23 +5,43 @@ require_relative './composer.rb'
 class Backend
 	def initialize(socket)
 		@socket = socket
-		@password = File.open(read_YAML("config.yml")["user-key"]).read
+		@config = read_YAML("config.yml")
+		@password = File.open(@config["user-key"]).read
+	end
+
+	def authenticate(password)
+
+		if password == "" or " "
+			@socket.print http_compose "/no-auth.html"
+			return false
+
+		elsif "#{Digest::MD5.hexdigest(password)}" == "#{@password}"
+			return true
+
+		else
+			@socket.print http_compose "/no-auth.html"
+			return false
+		end
 	end
 
 	def response(request, data)
+		if authenticate(data["password"])
+			case request[1]
 
-		case request[1]
-		when "/dash"
-
-
-			puts Digest::MD5.hexdigest(data["password"]).length, @password.length
-			if "#{Digest::MD5.hexdigest(data["password"])}" == "#{@password}"
-				database = read_YAML(read_YAML("config.yml")["database"])
-				@socket.print http_compose "/dashboard.html", database
-			else
-				@socket.print http_compose "/no-auth.html"
-			end
+			# Main dashboard
+			when "/dash"
+				database = read_YAML(@config["database"])
+				@socket.print http_compose "/dashboard.html", database		
 			
+			# New record
+			when "/new"
+				# scripts get run from start's level
+				puts exec "./lib/scripting/new-project.sh #{@config["projects"]} #{data["user"]} #{data["repo"]}"
+
+				database = read_YAML(@config["database"])
+				@socket.print http_compose "/dashboard.html", database		
+
+			end
 		end
 	end
 end
