@@ -1,3 +1,5 @@
+require 'uri'
+
 require_relative './frontend.rb'
 require_relative './backend.rb'
 
@@ -16,8 +18,10 @@ def app(server)
 		end
 
 		data = socket.read(headers["Content-Length"].to_i)
-		# string -> array tuples -> flat array -> hash
-		data = Hash[*data.split("&").map { |item| item.split "=" }.flatten]
+		# string -> array tuples (then decode them) -> flat array -> hash
+		data = Hash[*data.split("&").map {
+			|pair| pair.split("="). map { |item| URI.decode item }
+		}.flatten]
 
 		# Sort by type
 		if request[0] == 'GET'
