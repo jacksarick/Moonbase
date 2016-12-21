@@ -57,11 +57,12 @@ def http_compose(filename, replace = nil)
 	type = filename.split('.').last
 
 	# Case the type, for now text only
-	case 
+	case type
 	when 'html', 'css'
+		puts "yup"
 		return http_response content, type
 	when 'js'
-		return http_response content, 'js'
+		return http_response content, 'javascript'
 	else
 		return http_response content, 'plain'
 	end
