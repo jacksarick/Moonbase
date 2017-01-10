@@ -1,12 +1,15 @@
 #!/bin/bash
 
-projects=$1
-user=$2
-repo=$3
+username=$1
+repo=$2
 
-cd $projects
-git clone https://github.com/$repo.git
-cd ..
+data=https://api.github.com/users/$username/repos
+
+cd site/$projects
+git clone https://github.com/$username/$repo.git
+cd $repo
+./setup
+cd ../..
 
 db=user/projects.yml
 
@@ -18,7 +21,7 @@ echo "- project: $proj" >> $db
 echo "ping"
 echo "  user: $user" >> $db
 echo "  short: $short" >> $db
-echo "  repo: $repo" >> $db
+echo "  repo: https://github.com/$username/$repo" >> $db
 echo "  desc: $desc" >> $db
 echo "" >> $db
 echo "ping"

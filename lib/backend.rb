@@ -36,7 +36,7 @@ class Backend
 			# New record
 			when "/new"
 				# scripts get run from start's level
-				puts exec "./lib/scripting/new-project.sh #{@config["projects"]} #{data["user"]} #{data["repo"]}"
+				puts exec "./lib/scripting/new-project.rb #{@config["projects"]} #{data["user"]} #{data["repo"]}"
 
 				database = read_YAML(@config["database"])
 				@socket.print http_compose "/dashboard.html", database		
