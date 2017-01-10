@@ -59,7 +59,6 @@ def http_compose(filename, replace = nil)
 	# Case the type, for now text only
 	case type
 	when 'html', 'css'
-		puts "yup"
 		return http_response content, type
 	when 'js'
 		return http_response content, 'javascript'

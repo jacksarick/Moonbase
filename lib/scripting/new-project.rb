@@ -7,8 +7,7 @@ repo = ARGV[2]
 # puts Dir.pwd
 
 Dir.chdir("site/#{projects}")
-exec "git clone https://github.com/#{user}/#{repo}.git"
-puts "------------yeah------------\n"
+puts `git clone --depth=1 https://github.com/#{user}/#{repo}.git`
 Dir.chdir("#{repo}")
-exec "./setup"
+puts `./setup`
 Dir.chdir("../..")
