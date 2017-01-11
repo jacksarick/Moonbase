@@ -38,7 +38,7 @@ class Backend
 			# New record
 			when "/new"
 				# scripts get run from start's level
-				puts `./lib/scripting/new-project.rb #{@config["projects"]} #{data["user"]} #{data["repo"]}`
+				`./lib/scripting/new-project.rb #{data["user"]} #{data["repo"]}`
 
 				@socket.print http_redirect "/dash"
 
