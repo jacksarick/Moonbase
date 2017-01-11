@@ -1,14 +1,31 @@
 #!/usr/bin/env ruby
 
-projects = ARGV[0]
-user = ARGV[1]
-repo = ARGV[2]
+require_relative '../utility.rb'
+@config = read_YAML("config.yml")
+
+user = ARGV[0]
+repo = ARGV[1]
 
 # puts Dir.pwd
 
-Dir.chdir("site/#{projects}")
-puts `git clone --depth=1 https://github.com/#{user}/#{repo}.git`
+# Clone repo into projects
+Dir.chdir("#{@config['root']}/#{@config['projects']}")
+`git clone --depth=1 https://github.com/#{user}/#{repo}.git`
+`echo 'done'`
+
+# Set it up
 Dir.chdir("#{repo}")
 puts `./setup`
-Dir.chdir("../..")
-# puts Dir.pwd
+
+# Add it to projects
+Dir.chdir("../../../user")
+File.open("projects.yml", 'a') do |file|
+	file.puts ""
+	file.puts "- project: #{repo}\n"
+	file.puts "  user: #{user}\n"
+	file.puts "  repo: #{repo}\n"
+	file.puts "  repo: #{repo}\n"
+	file.puts "  desc: (none yet!)"
+end
+
+puts "done"
