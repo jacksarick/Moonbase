@@ -11,4 +11,4 @@ puts `git clone --depth=1 https://github.com/#{user}/#{repo}.git`
 Dir.chdir("#{repo}")
 puts `./setup`
 Dir.chdir("../..")
-puts Dir.pwd
+# puts Dir.pwd
