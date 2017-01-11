@@ -1,9 +1,11 @@
 require_relative './utility.rb'
+require_relative './http-lib.rb'
 
 # Load config
 config = read_YAML("config.yml")
 SERVER_ROOT = config['root']
 
+# Repeat block {{{ ... }}} replacement function
 def repeat_block(block, replacements)
 	block.gsub! /\t|\n/, ''
 	replacements.map { |vars|
@@ -37,17 +39,6 @@ def compose(filename, replacements)
 		puts e.backtrace
 		return "Error 404: file " + filename + " not found"
 	end
-end
-
-# Simple function for composing HTTP responses
-def http_response(response, ending)
-	return "HTTP/1.1 200 OK\r\n" +
-		"Server: Custom (ruby)\r\n" +
-		"Content-Type: text/#{ending}\r\n" +
-		"Content-Length: #{response.bytesize}\r\n" +
-		"Connection: close\r\n" +
-		"\r\n" +
-		response
 end
 
 # Compund function that mainly determines file type
