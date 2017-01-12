@@ -10,8 +10,8 @@ repo = ARGV[1]
 
 # Clone repo into projects
 Dir.chdir("#{@config['root']}/#{@config['projects']}")
-`git clone --depth=1 https://github.com/#{user}/#{repo}.git`
-`echo 'done'`
+puts `git clone --depth=1 https://github.com/#{user}/#{repo}.git`
+puts `echo 'done'`
 
 # Set it up
 Dir.chdir("#{repo}")
