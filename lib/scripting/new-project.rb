@@ -23,7 +23,6 @@ File.open("projects.yml", 'a') do |file|
 	file.puts "- project: #{repo}\n"
 	file.puts "  user: #{user}\n"
 	file.puts "  repo: #{repo}\n"
-	file.puts "  repo: #{repo}\n"
 	file.puts "  desc: (none yet!)"
 end
 
