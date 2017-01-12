@@ -27,21 +27,29 @@
 						<th>Student</th>
 						<th>Project name</th>
 						<th></th>
-					</tr>
+					</tr> 
 					<tr>
-						<td><input type="input" name="" placeholder="Student"></td>
-						<td><input type="input" name="" placeholder="Repository"></td>
-						<td><a class="can-run button is-primary ">Add New</a></td>
+						<form method="POST" action="/new">
+							<td><input class="input"  type="text" name="user" placeholder="GitHub Username (jacksarick)" required></td>
+							<td><input class="input" type="text" name="repo" placeholder="Repo name (project-boilerplate)" required></td>
+
+							<td>
+								<p class="control has-addons">
+									<input class="input" type="password" name="password" placeholder="Password..." required>
+									<input class="button can-run is-primary" type="submit" value="Submit">
+								</p>
+							</td>
+						</form>
 					</tr>
 					[[[<!-- Project row -->
 					<tr>
 						<td>{{{ user }}}</td>
 						<td>{{{ project }}}</td>
-						<td><a class="can-run button is-primary" onclick="$('#{{{ short }}}-modal').show()">Edit</a></td>
+						<td><a class="can-run button is-primary" onclick="$('#{{{ repo }}}-modal').show()">Edit</a></td>
 					</tr>
 
 					<!-- Matching Modal -->
-					<div class="modal" id="{{{ short }}}-modal">
+					<div class="modal" id="{{{ repo }}}-modal">
 						<div class="modal-background"></div>
 							<div class="modal-card">
 								<header class="modal-card-head">
@@ -51,16 +59,17 @@
 							<section class="modal-card-body">
 								<h2 class="title is-2">General</h2>
 								<b>Repo: </b> <pre contenteditable>{{{ repo }}}</pre><br>
+								<b>User: </b> <pre contenteditable>{{{ user }}}</pre><br>
 								<b>Description: </b> <span>{{{ desc }}}</span><br>
 								<br><br>
 								<h2 class="title is-2">Controls: </h2><br>
-								<b>Update project: </b><a class="can-run button is-primary" href="#{{{ short }}}-update">Update</a><br>
-								<b>Stop project: </b><a class="can-cancel button is-primary" href="#{{{ short }}}-update"></a>
+								<b>Update project: </b><a class="can-run button is-primary" href="#{{{ repo }}}-update">Update</a><br>
+								<b>Delete project: </b><a class="can-remove button is-primary" href="#{{{ repo }}}-delete"></a>
 							</section>
 
 							<footer class="modal-card-foot">
 								<a class="button is-primary">Save changes</a>
-								<a class="button" onclick="$('#{{{ short }}}-modal').hide()">Cancel</a>
+								<a class="button" onclick="$('#{{{ repo }}}-modal').hide()">Cancel</a>
 							</footer>
 						</div>
 					</div>]]]
