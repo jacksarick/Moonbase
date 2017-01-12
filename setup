@@ -1,0 +1,4 @@
+#!/bin/bash
+
+touch user/projects.yml
+sass site/bulma/bulma.sass --style compressed > site/bulma.min.css
