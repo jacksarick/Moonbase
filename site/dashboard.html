@@ -64,10 +64,10 @@
 									<input name="project" class="input" type="text" value="{{{ project }}}">
 									
 									<label class="label">Repo: </label>
-									<input name="repo" class="input" type="text" value="{{{ repo }}}" disabled>
+									<input name="repo" class="input" type="text" value="{{{ repo }}}" readonly>
 									
 									<label class="label">User: </label>
-									<input name="user" class="input" type="text" value="{{{ user }}}" disabled>
+									<input name="user" class="input" type="text" value="{{{ user }}}" readonly>
 									
 									<label class="label">Description: </label>
 									<input name="desc" class="input" type="text" value="{{{ desc }}}">
@@ -82,7 +82,8 @@
 								<h2 class="title is-2">Actions</h2>
 
 								<form method="POST" action="/pull">
-									<input name="project" class="hidden" type="text" value="{{{ project }}}" disabled>
+									Pulls repository from Github and update it
+									<input name="project" class="hidden" type="text" value="{{{ project }}}" readonly>
 									<p class="control has-addons">
 										<input class="input is-info" type="password" name="password" placeholder="Password..." required>
 										<input class="button is-info" type="submit" value="Update">
@@ -92,7 +93,8 @@
 								<br>
 
 								<form method="POST" action="/delete">
-									<input name="project" class="hidden" type="text" value="{{{ project }}}" disabled>
+								Delete a project from the server
+									<input name="project" class="hidden" type="text" value="{{{ project }}}" readonly>
 									<p class="control has-addons">
 										<input class="input is-danger" type="password" name="password" placeholder="Password..." required>
 										<input class="button is-danger" type="submit" value="Delete">

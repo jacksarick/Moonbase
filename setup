@@ -3,4 +3,5 @@
 # Setup script
 
 touch user/projects.yml
+chmod 664 user/projects.yml 
 sass site/bulma/bulma.sass --style compressed > site/bulma.min.css

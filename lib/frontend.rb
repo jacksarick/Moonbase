@@ -22,4 +22,8 @@ class Frontend
 		# database = read_YAML(read_YAML("config.yml")["database"])
 		@socket.print http_compose request[1]
 	end
+
+	def throw_error
+		@socket.print http_compose "/bad-req.html"
+	end
 end
