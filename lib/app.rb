@@ -10,25 +10,32 @@ def app(server)
 		# Receive the request
 		socket = server.accept
 		
-		request = socket.gets.split
+		# Try to handle request
+		begin
+			request = socket.gets.split
 
-		headers = {}
-		while line = socket.gets.split(' ', 2)
-			break if line[0] == "" 
-			headers[line[0].chop] = line[1].strip 
-		end
+			headers = {}
+			while line = socket.gets.split(' ', 2)
+				break if line[0] == "" 
+				headers[line[0].chop] = line[1].strip 
+			end
 
-		data = socket.read(headers["Content-Length"].to_i)
-		# string -> array tuples (then decode them) -> flat array -> hash
-		data = Hash[*data.split("&").map {
-			|pair| pair.split("="). map { |item| URI.decode item }
-		}.flatten]
+			data = socket.read(headers["Content-Length"].to_i)
+			# string -> array tuples (then decode them) -> flat array -> hash
+			data = Hash[*data.split("&").map {
+				|pair| pair.split("="). map { |item| URI.decode item }
+			}.flatten]
 
-		# Sort by type
-		if request[0] == 'GET'
-			Frontend.new(socket).response(request)
-		else
-			Backend.new(socket).response(request, data)
+			# Sort by type
+			if request[0] == 'GET'
+				Frontend.new(socket).response(request)
+			else
+				Backend.new(socket).response(request, data)
+			end
+		rescue Exception => e
+			puts e.message
+			puts e.backtrace
+			Frontend.new(socket).throw_error()
 		end
 	end
 end
