@@ -6,8 +6,6 @@ require_relative '../utility.rb'
 user = ARGV[0]
 repo = ARGV[1]
 
-puts Dir.pwd
-
 # Clone repo into projects
 Dir.chdir("#{@config['root']}/#{@config['projects']}")
 puts `git clone --depth=1 https://github.com/#{user}/#{repo}.git`

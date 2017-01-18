@@ -4,6 +4,19 @@ require_relative './utility.rb'
 require_relative './http-lib.rb'
 require_relative './composer.rb'
 
+def attempt_script_and_redirect(script, redirect)
+	begin
+		# scripts get run from start's level
+		puts `#{script}`
+
+		@socket.print http_redirect redirect
+	rescue Exception => e
+		puts e.message
+		puts e.backtrace
+		@socket.print http_redirect "/error.html"
+	end
+end
+
 class Backend
 	def initialize(socket)
 		@socket = socket
@@ -37,11 +50,11 @@ class Backend
 			
 			# New record
 			when "/new"
-				# scripts get run from start's level
-				puts `./lib/scripting/new-project.rb #{data["user"]} #{data["repo"]}`
-
-				@socket.print http_redirect "/dash"
-
+				attempt_script_and_redirect "./lib/scripting/new-project.rb #{data["user"]} #{data["repo"]}", "/dash"
+				
+			# Pull repo
+			when "/pull"
+				attempt_script_and_redirect "./lib/scripting/pull.rb #{data["project"]}", "/dash"
 			end
 		end
 	end
