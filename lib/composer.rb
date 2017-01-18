@@ -8,7 +8,7 @@ SERVER_ROOT = config['root']
 # Repeat block {{{ ... }}} replacement function
 def repeat_block(block, replacements)
 	if replacements == false
-		return false
+		return ""
 	end
 	
 	block.gsub! /\t|\n/, ''
