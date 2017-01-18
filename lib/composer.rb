@@ -7,6 +7,10 @@ SERVER_ROOT = config['root']
 
 # Repeat block {{{ ... }}} replacement function
 def repeat_block(block, replacements)
+	if replacements == false
+		return false
+	end
+	
 	block.gsub! /\t|\n/, ''
 	replacements.map { |vars|
 		block.gsub(/\{\{\{([^\}]+)\}\}\}/) {|_|
