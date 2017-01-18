@@ -17,9 +17,9 @@ puts `./setup`
 # Add it to projects
 Dir.chdir("../../../user")
 File.open("projects.yml", 'a') do |file|
-	file.puts "- project: #{repo}\n"
+	file.puts "- repo: #{repo}\n"
+	file.puts "  project: #{repo}\n"
 	file.puts "  user: #{user}\n"
-	file.puts "  repo: #{repo}\n"
 	file.puts "  desc: (none yet!)"
 	file.puts ""
 end
