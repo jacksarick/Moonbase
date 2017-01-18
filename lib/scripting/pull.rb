@@ -6,7 +6,8 @@ require_relative '../utility.rb'
 project = ARGV[0]
 
 Dir.chdir("#{@config['root']}/#{@config['projects']}/#{project}")
-puts `git subtree remote show origin`
-# puts `git fetch origin && git reset --hard origin/master && ./setup`
+
+# puts `git remote show origin`
+puts `git fetch origin && git reset --hard origin/master && ./setup`
 
 puts "done"

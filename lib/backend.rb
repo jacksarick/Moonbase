@@ -51,7 +51,7 @@ class Backend
 			# New record
 			when "/new"
 				attempt_script_and_redirect "./lib/scripting/new-project.rb #{data["user"]} #{data["repo"]}", "/dash"
-				
+
 			# Pull repo
 			when "/pull"
 				attempt_script_and_redirect "./lib/scripting/pull.rb #{data["project"]}", "/dash"

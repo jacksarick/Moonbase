@@ -9,6 +9,7 @@ def app(server)
 
 		# Receive the request
 		socket = server.accept
+		
 		request = socket.gets.split
 
 		headers = {}
