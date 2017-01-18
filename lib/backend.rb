@@ -55,6 +55,10 @@ class Backend
 			# Pull repo
 			when "/pull"
 				attempt_script_and_redirect "./lib/scripting/pull.rb #{data["project"]}", "/dash"
+
+			# Delete repo
+			when "/delete"
+				attempt_script_and_redirect "./lib/scripting/remove.rb #{data["project"]}", "/dash"
 			end
 		end
 	end
