@@ -1,5 +1,5 @@
 .DS_Store
 .sass-cache
 site/projects/*
-site/bulma.min.css
 user/projects.yml
+user/login.key
