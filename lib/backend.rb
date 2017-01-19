@@ -59,6 +59,14 @@ class Backend
 			# Delete repo
 			when "/delete"
 				attempt_script_and_redirect "./lib/scripting/remove.rb #{data["project"]}", "/dash"
+
+			# Update repo
+			when "/update"
+				attempt_script_and_redirect "./lib/scripting/update.rb #{data["project"]} #{data["user"]} #{data["repo"]} #{data["desc"]} #{data["old"]}", "/dash"
+
+			# Else it's probably a 404
+			else
+				@socket.print http_redirect "/error.html"
 			end
 		end
 	end

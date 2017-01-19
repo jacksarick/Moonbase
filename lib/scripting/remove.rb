@@ -13,4 +13,4 @@ Dir.chdir("#{@config['root']}/#{@config['projects']}")
 
 puts `rm -rf #{project}`
 
-puts "done"
+Tutor
