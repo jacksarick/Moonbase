@@ -4,10 +4,12 @@
 
 echo "Building file structure"
 mkdir site/projects
+mkdir user
+touch user/login.key
 touch user/projects.yml
 chmod 664 user/projects.yml
 
 echo "---- If this next step fails, it's OK ----"
 sass site/bulma/bulma.sass --style compressed > site/bulma.min.css
 
-echo "Done!"
+echo "Done! Please set a password with ./keygen.sh"
