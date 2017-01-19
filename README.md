@@ -4,8 +4,8 @@ Like jekyll for people with a million little sites that will eventually be actua
 ## Use
 run `./key-gen.sh` to set the password (or not. see if I care. default is "password").
 
-run `./setup.rb` to setup the server.
-run `./start.rb` to start the server.
+run `./setup` to setup the server.
+run `./start` to start the server.
 
 edit `config.yml` as you see fit. but in reality you don't need to. it's just a formality.
 
