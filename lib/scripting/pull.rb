@@ -10,4 +10,3 @@ Dir.chdir("#{@config['root']}/#{@config['projects']}/#{project}")
 # puts `git remote show origin`
 puts `git fetch origin && git reset --hard origin/master && ./setup`
 
-Tutor

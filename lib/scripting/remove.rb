@@ -13,4 +13,3 @@ Dir.chdir("#{@config['root']}/#{@config['projects']}")
 
 puts `rm -rf #{project}`
 
-Tutor
