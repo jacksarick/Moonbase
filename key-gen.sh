@@ -36,3 +36,4 @@ fi
 echo "Password confirmed"
 echo -n $(md5 -qs $PASSWORD) > $KEYFILE
 echo "Password change successful"
+echo "Ready to start server with ./start"
