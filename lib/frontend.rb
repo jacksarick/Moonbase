@@ -7,6 +7,8 @@ class Frontend
 
 	def response(request)
 
+		data = []
+
 		# Special index cases to route to index.html
 		if ["/", "/dash", "/dashboard.html"].include? request[1]
 			request[1] = '/index.html'
@@ -19,8 +21,12 @@ class Frontend
 			end
 		end
 
-		# database = read_YAML(read_YAML("config.yml")["database"])
-		@socket.print http_compose request[1]
+		if request[1] == "/dir"
+			request[1] = "/directory.html"
+			data = read_YAML(read_YAML("config.yml")["database"])
+		end
+
+		@socket.print http_compose request[1], data
 	end
 
 	def throw_error

@@ -7,7 +7,7 @@ SERVER_ROOT = config['root']
 
 # Repeat block {{{ ... }}} replacement function
 def repeat_block(block, replacements)
-	if replacements == false
+	if replacements == false or replacements == nil
 		return ""
 	end
 	
