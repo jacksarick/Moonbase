@@ -9,6 +9,10 @@ touch user/login.key
 touch user/projects.yml
 chmod 664 user/projects.yml
 
+if [ ! -f config.yml ]; then
+    cp config.sample.yml config.yml
+fi
+
 echo "---- If this next step fails, it's OK ----"
 sass site/bulma/bulma.sass --style compressed > site/bulma.min.css
 
