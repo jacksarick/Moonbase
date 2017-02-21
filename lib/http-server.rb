@@ -1,5 +1,5 @@
 class HTTP_Server
-	def initialize(port)
+	def initialize(address, port)
 		@port = port
 		@address = address
 	end
