@@ -6,8 +6,8 @@ require './lib/http-server.rb'
 
 # Load config
 config = read_YAML("config.yml")
-PORT = ARGV[0] || config['port']
-ADDRESS =  config['address'] || 'localhost'
+ADDRESS =  ARGV[0] || config['address'] || 'localhost'
+PORT    =  ARGV[1] || config['port']    || 3000
 
 server = HTTP_Server.new(ADDRESS, PORT)
 server = server.start()
