@@ -2,4 +2,4 @@
 .sass-cache
 site/projects/*
 user/projects.yml
-user/login.key
+config.yml
