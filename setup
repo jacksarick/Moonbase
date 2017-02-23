@@ -2,18 +2,41 @@
 
 # Setup script
 
-echo "Building file structure"
+# Build directory and file structure
+echo -e "Building file structure... \c"
 mkdir site/projects
 mkdir user
 touch user/login.key
 touch user/projects.yml
 chmod 664 user/projects.yml
+echo "[done]"
 
+# Generate config if none found
 if [ ! -f config.yml ]; then
+	echo -e "Generating config file...  \c"
     cp config.sample.yml config.yml
+    echo "[done]"
+else
+	echo "Config file detected. None generated"
 fi
 
-echo "---- If this next step fails, it's OK ----"
-sass site/bulma/bulma.sass --style compressed > site/bulma.min.css
+# Attempt to regenerate sass files
+echo -e "Regenerating sass files... \c"
+if sass site/bulma/bulma.sass --style compressed > site/bulma.min.css; then
+	echo "[done]"
+else
+	echo "[failed]"
+	echo "   This is OK. See GitHub for more info"
+fi
 
-echo "Done! Please set a password with ./key-gen.sh"
+# Generate a password
+echo "Generating password..."
+echo ""
+/bin/bash ./key-gen.sh
+echo ""
+echo "Generating password...     [done]"
+
+# Done!
+echo ""
+echo "Config complete"
+echo "Ready to start server with ./start" 
