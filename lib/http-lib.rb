@@ -14,7 +14,7 @@ end
 # Redirect user to new link
 def http_redirect(link)
 	return "HTTP/1.1 303 See Other\r\n" +
-		"Location: #{@config['address']}#{link}\r\n" +
+		"Location: #{link}\r\n" +
 		"\r\n" +
 		"Redirecting...\r\n"
 end
