@@ -12,12 +12,22 @@ puts `git clone --depth=1 https://github.com/#{user}/#{repo}.git`
 
 # Set it up
 Dir.chdir("#{repo}")
-begin
-	puts `./setup`
-rescue Exception => e
-	puts e.message
-	puts e.backtrace
-	puts "Setup script failed"
+if File.file?('./setup') == true
+	begin
+		puts `./setup`
+	rescue Exception => e
+		puts e.message
+		puts e.backtrace
+		puts "./setup failed"
+	end
+elsif File.file?('./setup.sh') == true
+	begin
+		puts `./setup.sh`
+	rescue Exception => e
+		puts e.message
+		puts e.backtrace
+		puts "./setup.sh failed"
+	end
 end
 
 # Add it to projects
@@ -29,4 +39,3 @@ File.open("projects.yml", 'a') do |file|
 	file.puts "  desc: (none yet!)"
 	file.puts ""
 end
-
