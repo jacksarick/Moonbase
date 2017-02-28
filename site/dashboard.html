@@ -8,107 +8,126 @@
 		<script src="jackQuery.js"></script>
 	</head>
 	<body>
+		<section class="hero is-primary">
+		  <div class="hero-body">
+		    <div class="container">
+		      <h1 class="title is-2">
+		        Moonbase
+		      </h1>
+					<h2 class="subtitle">
+						Dashboard
+					</h2>
+		    </div>
+		  </div>
+		</section>
+		<div class="container container-main">
+			<!-- Main Content -->
+			<div class="columns">
 
-		<!-- Main Content -->
-		<div class="columns">
+				<!-- Content -->
+				<div class="column is-whole">
 
-			<!-- Content -->
-			<div class="column is-whole">
+					<!-- Title + Search -->
+					<div class="control is-grouped">
+					  <p class="control is-expanded">
+					    <input class="input" type="text" placeholder="Find a repository">
+					  </p>
+					  <p class="control">
+					    <a class="button is-primary">
+					      Search
+					    </a>
+					  </p>
+					</div>
 
-				<!-- Title -->
-				<div class="control is-grouped">
-					<h1 class="title is-1 ">Moonbase</h1>
-					<input class="input is-primary is-expanded left-space" type="text" placeholder="Search...">
-				</div>
-				
-				<!-- List of commands -->
-				<table class="table is-striped">
-					<tr>
-						<th>Student</th>
-						<th>Project name</th>
-						<th></th>
-					</tr> 
-					<tr>
-						<form method="POST" action="/new">
-							<td><input class="input"  type="text" name="user" placeholder="GitHub Username (jacksarick)" required></td>
-							<td><input class="input" type="text" name="repo" placeholder="Repo name (project-boilerplate)" required></td>
+					<!-- List of commands -->
+					<table class="table is-striped">
+						<tr>
+							<th>Student</th>
+							<th>Project name</th>
+							<th></th>
+						</tr>
+						<tr>
+							<form method="POST" action="/new">
+								<td><input class="input"  type="text" name="user" placeholder="GitHub Username (jacksarick)" required></td>
+								<td><input class="input" type="text" name="repo" placeholder="Repo name (project-boilerplate)" required></td>
 
-							<td>
-								<p class="control has-addons">
-									<input class="input" type="password" name="password" placeholder="Password..." required>
-									<input class="button can-run is-primary" type="submit" value="Submit">
-								</p>
-							</td>
-						</form>
-					</tr>
-					[[[<!-- Project row -->
-					<tr>
-						<td>{{{ user }}}</td>
-						<td><a href="../p/{{{ project }}}/index.html">{{{ project }}}</a></td>
-						<td><a class="can-run button is-primary" onclick="$('#{{{ project }}}-modal').show()">Edit</a></td>
-					</tr>
-
-					<!-- Matching Modal -->
-					<div class="modal" id="{{{ project }}}-modal">
-						<div class="modal-background"></div>
-							<div class="modal-card">
-								<header class="modal-card-head">
-								<p class="modal-card-title">{{{ project }}}</p>
-							</header>
-
-							<section class="modal-card-body">
-								<form method="POST" action="/update">
-									<h2 class="title is-2">General</h2>
-									
-									<label class="label">Project: </label>
-									<input name="project" class="input" type="text" value="{{{ project }}}">
-									<input name="old" class="hidden" type="text" value="{{{ project }}}" readonly>
-									
-									<label class="label">Repo: </label>
-									<input name="repo" class="input" type="text" value="{{{ repo }}}" readonly>
-									
-									<label class="label">User: </label>
-									<input name="user" class="input" type="text" value="{{{ user }}}" readonly>
-									
-									<label class="label">Description: </label>
-									<input name="desc" class="input" type="text" value="{{{ desc }}}">
-									
-									<label class="label">Save Changes:</label>
+								<td>
 									<p class="control has-addons">
 										<input class="input" type="password" name="password" placeholder="Password..." required>
-										<input class="button can-run is-primary" type="submit" value="Save">
+										<input class="button can-run is-primary" type="submit" value="Submit">
 									</p>
-								</form>
+								</td>
+							</form>
+						</tr>
+						[[[<!-- Project row -->
+						<tr>
+							<td>{{{ user }}}</td>
+							<td><a href="../p/{{{ project }}}/index.html">{{{ project }}}</a></td>
+							<td><a class="can-run button is-primary" onclick="$('#{{{ project }}}-modal').show()">Edit</a></td>
+						</tr>
 
-								<h2 class="title is-2">Actions</h2>
+						<!-- Matching Modal -->
+						<div class="modal" id="{{{ project }}}-modal">
+							<div class="modal-background"></div>
+								<div class="modal-card">
+									<header class="modal-card-head">
+									<p class="modal-card-title">{{{ project }}}</p>
+								</header>
 
-								<form method="POST" action="/pull">
-									Pulls repository from Github and update it
-									<input name="project" class="hidden" type="text" value="{{{ project }}}" readonly>
-									<p class="control has-addons">
-										<input class="input is-info" type="password" name="password" placeholder="Password..." required>
-										<input class="button is-info" type="submit" value="Update">
-									</p>
-								</form>
+								<section class="modal-card-body">
+									<form method="POST" action="/update">
+										<h2 class="title is-2">General</h2>
 
-								<br>
+										<label class="label">Project: </label>
+										<input name="project" class="input" type="text" value="{{{ project }}}">
+										<input name="old" class="hidden" type="text" value="{{{ project }}}" readonly>
 
-								<form method="POST" action="/delete">
-								Delete a project from the server
-									<input name="project" class="hidden" type="text" value="{{{ project }}}" readonly>
-									<p class="control has-addons">
-										<input class="input is-danger" type="password" name="password" placeholder="Password..." required>
-										<input class="button is-danger" type="submit" value="Delete">
-									</p>
-								</form>
-							</section>
+										<label class="label">Repo: </label>
+										<input name="repo" class="input" type="text" value="{{{ repo }}}" readonly>
 
-							<footer class="modal-card-foot">
-								<a class="button" onclick="$('#{{{ project }}}-modal').hide()">Cancel</a>
-							</footer>
-						</div>
-					</div>]]]
-				</table> 
+										<label class="label">User: </label>
+										<input name="user" class="input" type="text" value="{{{ user }}}" readonly>
+
+										<label class="label">Description: </label>
+										<input name="desc" class="input" type="text" value="{{{ desc }}}">
+
+										<label class="label">Save Changes:</label>
+										<p class="control has-addons">
+											<input class="input" type="password" name="password" placeholder="Password..." required>
+											<input class="button can-run is-primary" type="submit" value="Save">
+										</p>
+									</form>
+
+									<h2 class="title is-2">Actions</h2>
+
+									<form method="POST" action="/pull">
+										Pulls repository from Github and update it
+										<input name="project" class="hidden" type="text" value="{{{ project }}}" readonly>
+										<p class="control has-addons">
+											<input class="input is-info" type="password" name="password" placeholder="Password..." required>
+											<input class="button is-info" type="submit" value="Update">
+										</p>
+									</form>
+
+									<br>
+
+									<form method="POST" action="/delete">
+									Delete a project from the server
+										<input name="project" class="hidden" type="text" value="{{{ project }}}" readonly>
+										<p class="control has-addons">
+											<input class="input is-danger" type="password" name="password" placeholder="Password..." required>
+											<input class="button is-danger" type="submit" value="Delete">
+										</p>
+									</form>
+								</section>
+
+								<footer class="modal-card-foot">
+									<a class="button" onclick="$('#{{{ project }}}-modal').hide()">Cancel</a>
+								</footer>
+							</div>
+						</div>]]]
+					</table>
+				</div>
 			</div>
 		</div>
 	</body>

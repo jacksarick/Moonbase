@@ -1,12 +1,7 @@
 body {
-	margin: 0 auto;
-	max-width: 65em;
 	line-height: 1.5;
-	padding: 4em 1em;
 	color: #555;
 	font-family: "Helvetica", "Arial", sans-serif;
-	margin-top: 1em;
-	padding-top: 1em;
 }
 
 pre {
@@ -15,4 +10,9 @@ pre {
 
 nav {
 	background: #FAFAFA;
+}
+
+.container-main{
+	padding-top: 1em;
+	margin-top: 1em;
 }
