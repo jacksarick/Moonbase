@@ -35,7 +35,7 @@ fi
 
 echo "Password confirmed"
 if [[ "$OSTYPE" == "linux-gnu" ]]; then
-  echo -n $(md5sum -qs $PASSWORD) > $KEYFILE
+  echo -n $('%s' $PASSWORD | md5sum) > $KEYFILE
 elif [[ "$OSTYPE" == "darwin"* ]]; then
   echo -n $(md5 -qs $PASSWORD) > $KEYFILE
 fi
