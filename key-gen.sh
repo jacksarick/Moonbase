@@ -34,5 +34,9 @@ if [ "$REPASSWORD" == "" ] || [ "$REPASSWORD" != "$PASSWORD" ]; then
 fi
 
 echo "Password confirmed"
-echo -n $(md5 -qs $PASSWORD) > $KEYFILE
+if [[ "$OSTYPE" == "linux-gnu" ]]; then
+  echo -n $(md5sum -qs $PASSWORD) > $KEYFILE
+elif [[ "$OSTYPE" == "darwin"* ]]; then
+  echo -n $(md5 -qs $PASSWORD) > $KEYFILE
+fi
 echo "Password change successful"
