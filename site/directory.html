@@ -8,33 +8,34 @@
 		<script src="jackQuery.js"></script>
 	</head>
 	<body>
+		<div class="container container-main">
+			<!-- Main Content -->
+			<div class="columns">
 
-		<!-- Main Content -->
-		<div class="columns">
+				<!-- Content -->
+				<div class="column is-whole">
 
-			<!-- Content -->
-			<div class="column is-whole">
+					<!-- Title -->
+					<div class="control is-grouped">
+						<h1 class="title is-1 ">Directory</h1>
+						<input class="input is-primary is-expanded left-space" type="text" placeholder="Search...">
+					</div>
 
-				<!-- Title -->
-				<div class="control is-grouped">
-					<h1 class="title is-1 ">Directory</h1>
-					<input class="input is-primary is-expanded left-space" type="text" placeholder="Search...">
+					<!-- List of commands -->
+					<table class="table is-striped">
+						<tr>
+							<th>Student</th>
+							<th>Project name</th>
+							<th>Description</th>
+						</tr>
+						[[[<!-- Project row -->
+						<tr>
+							<td>{{{ user }}}</td>
+							<td><a href="../p/{{{ project }}}/index.html">{{{ project }}}</a></td>
+							<td>{{{ desc }}}</td>
+						</tr>]]]
+					</table>
 				</div>
-				
-				<!-- List of commands -->
-				<table class="table is-striped">
-					<tr>
-						<th>Student</th>
-						<th>Project name</th>
-						<th>Description</th>
-					</tr> 
-					[[[<!-- Project row -->
-					<tr>
-						<td>{{{ user }}}</td>
-						<td><a href="../p/{{{ project }}}/index.html">{{{ project }}}</a></td>
-						<td>{{{ desc }}}</td>
-					</tr>]]]
-				</table> 
 			</div>
 		</div>
 	</body>
