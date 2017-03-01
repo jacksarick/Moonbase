@@ -1,0 +1,17 @@
+language: ruby
+rvm:
+  - 2.0.0
+  - 2.2
+  - 2.4.0
+  - ruby-head
+git:
+  depth: 3
+
+install:
+  - bundle
+
+script:
+  - ./setup
+
+
+sudo: false

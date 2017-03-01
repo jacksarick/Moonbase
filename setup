@@ -21,13 +21,13 @@ else
 fi
 
 # Attempt to regenerate sass files
-echo -e "Regenerating sass files... \c"
-if sass site/bulma/bulma.sass --style compressed > site/bulma.min.css; then
-	echo "[done]"
-else
-	echo "[failed]"
-	echo "   This is OK. See GitHub for more info"
-fi
+# echo -e "Regenerating sass files... \c"
+# if sass site/bulma/bulma.sass --style compressed > site/bulma.min.css; then
+# 	echo "[done]"
+# else
+# 	echo "[failed]"
+# 	echo "   This is OK. See GitHub for more info"
+# fi
 
 # Generate a password
 echo "Generating password..."
@@ -39,4 +39,4 @@ echo "Generating password...     [done]"
 # Done!
 echo ""
 echo "Config complete"
-echo "Ready to start server with ./start" 
+echo "Ready to start server with ./start"
