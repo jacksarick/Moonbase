@@ -37,5 +37,6 @@ File.open("projects.yml", 'a') do |file|
 	file.puts "  project: #{repo}\n"
 	file.puts "  user: #{user}\n"
 	file.puts "  desc: (none yet!)"
+	file.puts "  root: /"
 	file.puts ""
 end
