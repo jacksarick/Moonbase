@@ -12,7 +12,7 @@ To run one-time setup, run:
 $ ./setup
 ```
 
-Setup creates a few files, as well as prompting you to set an initial password.
+Setup creates a few files, as well as a prompt to set an initial password.
 
 To start the server, run:
 
@@ -20,9 +20,10 @@ To start the server, run:
 $ ./start
 ```
 
-By default, Moonbase runs on `localhost:3000`. You can change this in `config.yml`.
+By default, Moonbase runs on `localhost:3000`.
 
-If you would like to regenerate the password, run:
+
+To regenerate the password, run:
 
 ```
 $ ./key-gen.sh
@@ -32,7 +33,7 @@ Settings can be configured in `config.yml`; more documentation on how it works i
 
 ## Contributing
 
-If you'd like to contribute to Moonbase, that would be awesome! Follow the Usage instructions to set up a local copy on your machine, and then start developing! After you've completed your changes, send us a pull request.
+If you would like to contribute to Moonbase, that would be awesome! Follow the Usage instructions to set up a local copy on your machine, and then start developing! After you've completed your changes, send us a pull request.
 
 ## Credits
 * [@jacksarick](https://github.com/jacksarick/) - original creator
