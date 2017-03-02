@@ -29,7 +29,27 @@ To regenerate the password, run:
 $ ./key-gen.sh
 ```
 
-Settings can be configured in `config.yml`; more documentation on how it works is coming soon.
+## Configuration
+
+`config.yml` is the config file. The sample configuration file will work without any modifications, and is created by the `setup` command. By default, it should look like this:
+
+```yaml
+address: localhost
+port: 3000
+root: site
+projects: projects
+user-key: ./user/login.key
+database: ./user/projects.yml
+```
+
+Line by line, here is the purpose of each setting in the configuration file:
+
+1. `address` is the public IP address that Moonbase will attach too. *Note: IPv6 may not work. Currently unable to test due to a budget of $0*.
+2. `port` is the port that Moonbase will listen to. Port 88 is standard for HTTP websites. 
+3. `root` is the path that Moonbase will look in for files to serve.
+4. `projects` is the path where Moonbase will store all projects that it is currently serving.
+5. `user-key` is the file that Moonbase expects to find a hashed password.
+6. `database` is the file that Moonbase uses to store data about projects.
 
 ## Contributing
 
