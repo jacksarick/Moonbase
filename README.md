@@ -34,10 +34,10 @@ $ ./key-gen.sh
 `config.yml` is the config file. The sample configuration file will work without any modifications, and is created by the `setup` command. By default, it should look like this:
 
 ```yaml
-address: localhost
-port: 3000
-root: site
-projects: projects
+address:  localhost
+port:     3000
+root:     site
+projects: site/projects
 user-key: ./user/login.key
 database: ./user/projects.yml
 ```

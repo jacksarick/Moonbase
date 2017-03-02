@@ -9,7 +9,7 @@ projects = read_YAML(@config["database"])
 
 write_YAML @config["database"], projects.select { |e| e["project"] != project }
 
-Dir.chdir("#{@config['root']}/#{@config['projects']}")
+Dir.chdir("#{@config['projects']}")
 
 puts `rm -rf #{project}`
 

@@ -7,7 +7,7 @@ user = ARGV[0]
 repo = ARGV[1]
 
 # Clone repo into projects
-Dir.chdir("#{@config['root']}/#{@config['projects']}")
+Dir.chdir("#{@config['projects']}")
 puts `git clone --depth=1 https://github.com/#{user}/#{repo}.git`
 
 # Set it up
@@ -37,5 +37,6 @@ File.open("projects.yml", 'a') do |file|
 	file.puts "  project: #{repo}\n"
 	file.puts "  user: #{user}\n"
 	file.puts "  desc: (none yet!)"
+	file.puts "  root: ''"
 	file.puts ""
 end
