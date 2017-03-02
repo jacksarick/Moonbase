@@ -1,4 +1,9 @@
 require_relative './composer.rb'
+require_relative './utility.rb'
+
+# Load config
+config = read_YAML("config.yml")
+DATABASE = read_YAML(config['database'])
 
 class Frontend
 	def initialize(socket)
@@ -6,29 +11,43 @@ class Frontend
 	end
 
 	def response(request)
+		url = request[1]
 
 		data = []
 
 		# Special index cases to route to index.html
-		if ["/", "/dash", "/dashboard.html"].include? request[1]
-			request[1] = '/index.html'
+		if ["/", "/dash", "/dashboard.html"].include? url
+			url = '/index.html'
 		end
 
 		# Route to directory
-		if request[1] == "/dir"
-			request[1] = "/directory.html"
-			data = read_YAML(read_YAML("config.yml")["database"])
+		if url == "/dir"
+			url = "/directory.html"
+			data = DATABASE
 		end
 
 		# Projects have special routing rules
-		if request[1][0..2] == "/p/"
-			request[1].gsub!("/p/", "/projects/")
+		if url[0..2] == "/p/"
+
+			# Project specific root
+			url.sub!(/\/p\/([^\/]+)\//) {|_|
+				root = DATABASE.select { |p| p["repo"] == $1}.first['root']
+				"/p/#{$1}/#{root}/" 
+			}
+
+			# Map p -> projects
+			url.gsub!("/p/", "/projects/")
+
+			# Index case
 			if request[-1] == "/"
-				k += "index.html"
+				url += "index.html"
 			end
+
+			print url
 		end
 
-		@socket.print http_compose request[1], data
+
+		@socket.print http_compose url, data
 	end
 
 	def throw_error
