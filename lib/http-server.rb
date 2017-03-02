@@ -1,7 +1,7 @@
 class HTTP_Server
 	def initialize(address, port)
-		@port = port
 		@address = address
+		@port = port
 	end
 
 	def start
