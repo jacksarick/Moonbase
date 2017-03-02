@@ -1,6 +1,6 @@
-address: localhost
-port: 3000
-root: site
-projects: projects
+address:  localhost
+port:     3000
+root:     site
+projects: site/projects
 user-key: ./user/login.key
 database: ./user/projects.yml

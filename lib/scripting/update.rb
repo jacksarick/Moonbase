@@ -17,5 +17,5 @@ projects = projects.select { |e| e["project"] != old }
 projects.push({'repo' => repo, 'project' => project, 'user' => user, 'desc' => desc, 'root' => root})
 write_YAML @config["database"], projects
 
-Dir.chdir("#{@config['root']}/#{@config['projects']}")
+Dir.chdir("#{@config['projects']}")
 puts `mv #{old} #{project}`
