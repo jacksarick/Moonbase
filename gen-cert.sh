@@ -1,4 +1,7 @@
 #!/bin/bash
+
+# This file was re-used from [beachball](https://github.com/jacksarick/beachball)
+
 mkdir cert
 cd cert
 openssl genrsa -out certificate.key 4096
