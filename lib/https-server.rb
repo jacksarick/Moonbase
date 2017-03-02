@@ -13,7 +13,7 @@ class Server
 
 	def start
 		# Make TCP socket (same as http)
-		socket = TCPSocket.open(@address, @port)
+		tcps = TCPServer.new(@address, @port)
 
 		# Load up certs
 		ssl_context = OpenSSL::SSL::SSLContext.new()
@@ -21,8 +21,11 @@ class Server
 		ssl_context.key = OpenSSL::PKey::RSA.new(File.open(config['key']))
 		ssl_context.ssl_version = :SSLv23
 
+		ssls = OpenSSL::SSL::SSLServer.new(tcps, ssl_context)
+		ssls.start_immediately = true
+
 		# Send it off
 		print "server @ https://#{@address}:#{@port}\n"
-		return OpenSSL::SSL::SSLSocket.new(socket, ssl_context)
+		return ssls
 	end
 end
