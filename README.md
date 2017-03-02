@@ -53,7 +53,7 @@ Line by line, here is the purpose of each setting in the configuration file:
 
 ## Contributing
 
-If you would like to contribute to Moonbase, that would be awesome! Follow the Usage instructions to set up a local copy on your machine, and then start developing! After you've completed your changes, send us a pull request.
+If you would like to contribute to Moonbase, that would be awesome! Follow the usage instructions to set up a local copy on your machine, and start developing. After you've completed your changes, send us a pull request.
 
 ## Credits
 * [@jacksarick](https://github.com/jacksarick/) - original creator
