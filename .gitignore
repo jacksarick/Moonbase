@@ -3,3 +3,4 @@
 site/projects/*
 user/*
 config.yml
+Gemfile.lock
