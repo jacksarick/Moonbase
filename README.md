@@ -31,7 +31,7 @@ $ ./key-gen.sh
 
 ## Configuration
 
-`config.yml` is the config file. The sample configuration file will work without any modifications, and is created by the `setup` command. By default, it should look like this:
+`config.yml` is the config file. The sample configuration file (`config.sample.yml`) will work without any modifications, and is created by the `setup` command. By default, it should look like this:
 
 ```yaml
 address:  localhost
