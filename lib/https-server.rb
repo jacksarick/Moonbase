@@ -5,7 +5,7 @@ require_relative './utility.rb'
 # Load config
 config = read_YAML("config.yml")
 
-class HTTPS_Server
+class Server
 	def initialize(address, port)
 		@address = address
 		@port = port

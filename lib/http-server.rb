@@ -1,4 +1,4 @@
-class HTTP_Server
+class Server
 	def initialize(address, port)
 		@address = address
 		@port = port
