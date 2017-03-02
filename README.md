@@ -40,6 +40,8 @@ root:     site
 projects: site/projects
 user-key: ./user/login.key
 database: ./user/projects.yml
+
+...
 ```
 
 Line by line, here is the purpose of each setting in the configuration file:
@@ -50,6 +52,8 @@ Line by line, here is the purpose of each setting in the configuration file:
 4. `projects` is the path where Moonbase will store all projects that it is currently serving.
 5. `user-key` is the file that Moonbase expects to find a hashed password.
 6. `database` is the file that Moonbase uses to store data about projects.
+
+Moonbase also has a built-in HTTPS server. To configure, set `https` to true, and direct it to a valid key/certificate pair. As a development aid, a local certificate generation tool is included. Run it using `./gen-cert.sh` and it should automatically generate a valid 4096 RSA key/cert pair. The configuration for this default pair is included in the sample configuration.
 
 ## Contributing
 

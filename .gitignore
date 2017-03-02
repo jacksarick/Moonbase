@@ -2,5 +2,6 @@
 .sass-cache
 site/projects/*
 user/*
+cert/
 config.yml
 Gemfile.lock

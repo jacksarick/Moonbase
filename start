@@ -2,14 +2,20 @@
 
 require 'socket'
 require './lib/app.rb'
-require './lib/http-server.rb'
 
 # Load config
 config = read_YAML("config.yml")
 ADDRESS =  ARGV[0] || config['address'] || 'localhost'
 PORT    =  ARGV[1] || config['port']    || 3000
 
-server = HTTP_Server.new(ADDRESS, PORT)
+# Load correct server
+if config['https'] == true
+	require './lib/https-server.rb'
+else
+	require './lib/http-server.rb'
+end
+
+server = Server.new(ADDRESS, PORT)
 server = server.start()
 
 app(server)

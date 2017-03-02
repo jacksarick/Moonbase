@@ -4,3 +4,7 @@ root:     site
 projects: site/projects
 user-key: ./user/login.key
 database: ./user/projects.yml
+
+https: false
+cert:  cert/certificate.crt
+key:   cert/certificate.key
