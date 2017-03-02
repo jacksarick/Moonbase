@@ -2,7 +2,7 @@ task :setup do
   sh "./setup"
 end
 
-task :autoseup do
+task :autosetup do
   sh "./key-gen.sh -p test"
 end
 
