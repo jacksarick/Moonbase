@@ -42,8 +42,6 @@ class Frontend
 			if request[-1] == "/"
 				url += "index.html"
 			end
-
-			print url
 		end
 
 
