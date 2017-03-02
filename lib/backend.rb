@@ -62,7 +62,7 @@ class Backend
 
 			# Update repo
 			when "/update"
-				attempt_script_and_redirect "./lib/scripting/update.rb #{data["project"]} #{data["user"]} #{data["repo"]} #{data["desc"]} #{data["old"]}", "/dash"
+				attempt_script_and_redirect "./lib/scripting/update.rb #{data["project"]} #{data["user"]} #{data["repo"]} #{data["desc"]} #{data["root"]} #{data["old"]}", "/dash"
 
 			# Else it's probably a 404
 			else
