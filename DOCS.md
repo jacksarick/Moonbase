@@ -4,6 +4,10 @@
 
 Moonbase pipes all errors to `stderr`. These are not (yet) stored in any sort of log file, so if you want to capture/record error messages, I suggest using *nix pipes. Debug messages are not special in any respect, they are mostly just `print` statements thrown in at important breakpoints. TODO: add a proper output interface, eventually.
 
+## Programming
+
+The core of Moonbase was written by [Jack Sarick](https://github.com/jacksarick). This was his first project in Ruby, coming from a primarily functional background. His code reflects this. Very often, there are multiple callback statements chained together in a series. Lists, hashes, and the functions that support them are relied on heavily. Though it is one way to program an application, it is not the only way. If you feel more comfortable writing in a more Object-Oriented fashion, that is totally OK. The only catch is that it must be compatible. As long as a function works, and doesn't bother other functions, it is good to go. This means that global variables are a big no-no. Exactly how the functions work, though, is totally up to the person writing them.
+
 ## Writing Scripts
 
 The `scripting` directory is language agnostic. This means you can write a script in whatever language you choose. In the original version of Moonbase, they were all Rust binaries. All that backend is doing is running the script with *nix execution. As long as the file is runnable (this means that compiled languages must be pre-compiled and scripts need shebangs), Moonbase can handle it no problem.
