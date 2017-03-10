@@ -5,12 +5,17 @@ require_relative './utility.rb'
 config = read_YAML("config.yml")
 DATABASE = read_YAML(config['database'])
 
+# The class for handling the frontend
 class Frontend
+
+	# Set the variables on creation
 	def initialize(socket)
 		@socket = socket
 	end
 
+	# Route requests to destinations
 	def response(request)
+		# Pull the requested url
 		url = request[1]
 
 		data = []
@@ -35,8 +40,8 @@ class Frontend
 				"/p/#{$1}/#{root}/" 
 			}
 
-			# Map p -> projects
-			url.gsub!("/p/", "/projects/")
+			# Change first p -> projects
+			url.sub!("/p/", "/projects/")
 
 			# Index case
 			if request[-1] == "/"
@@ -48,6 +53,7 @@ class Frontend
 		@socket.print http_compose url, data
 	end
 
+	# Simple error function
 	def throw_error
 		@socket.print http_compose "/bad-req.html"
 	end
