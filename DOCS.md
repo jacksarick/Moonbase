@@ -1,5 +1,8 @@
 # Developer Documentation
 
+## Writing scripts
+
+The `scripting` directory is language agnostic. This means you can write a script in whatever language you choose. In the original version of Moonbase, they were all Rust binaries. All that backend is doing is running the script with *nix execution. As long as the file is runnable (this means that compiled languages must be pre-compiled and scripts need shebangs), Moonbase can handle it no problem.
 
 ## Application Structure
 
