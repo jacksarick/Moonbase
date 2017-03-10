@@ -3,6 +3,7 @@
 require_relative '../utility.rb'
 @config = read_YAML("config.yml")
 
+# Grab arguments
 user = ARGV[0]
 repo = ARGV[1]
 
@@ -12,6 +13,8 @@ puts `git clone --depth=1 https://github.com/#{user}/#{repo}.git`
 
 # Set it up
 Dir.chdir("#{repo}")
+
+# Run setup if possible
 if File.file?('./setup') == true
 	begin
 		puts `./setup`
@@ -19,14 +22,6 @@ if File.file?('./setup') == true
 		puts e.message
 		puts e.backtrace
 		puts "./setup failed"
-	end
-elsif File.file?('./setup.sh') == true
-	begin
-		puts `./setup.sh`
-	rescue Exception => e
-		puts e.message
-		puts e.backtrace
-		puts "./setup.sh failed"
 	end
 end
 
