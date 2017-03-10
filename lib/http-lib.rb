@@ -1,5 +1,10 @@
 @config = read_YAML("config.yml")
 
+# IF YOU'RE CURIUOS AS TO THE WHAT AND HOW
+# AND WHY, PLEASE JUST READ THE OFFICIAL
+# HTML SPECS, AND INSPECT A FEW PACKETS
+# GOING IN AND OUT
+
 # Simple function for composing HTTP responses
 def http_response(response, ending)
 	return "HTTP/1.1 200 OK\r\n" +
