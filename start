@@ -15,7 +15,9 @@ else
 	require './lib/http-server.rb'
 end
 
+# Generate server
 server = Server.new(ADDRESS, PORT)
 server = server.start()
 
+# Send the server over to the app
 app(server)

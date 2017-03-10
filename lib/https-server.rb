@@ -2,8 +2,9 @@ require 'socket'
 require 'openssl'
 require_relative './utility.rb'
 
-
+# Class to generate HTTPS server
 class Server
+	# Set variables
 	def initialize(address, port)
 		@address = address
 		@port = port
@@ -12,6 +13,7 @@ class Server
 		@config = read_YAML("config.yml")
 	end
 
+	# Barebones HTTPS server
 	def start
 		# Make TCP socket (same as http)
 		tcps = TCPServer.new(@address, @port)

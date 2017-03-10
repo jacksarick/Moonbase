@@ -11,6 +11,7 @@ def repeat_block(block, replacements)
 		return ""
 	end
 	
+	# Replace all variables with their content
 	block.gsub! /\t|\n/, ''
 	replacements.map { |vars|
 		block.gsub(/\{\{\{([^\}]+)\}\}\}/) {|_|
@@ -23,6 +24,7 @@ end
 def compose(filename, replacements)
 	# Read the file
 	begin
+		# Load file
 		file = File.read(SERVER_ROOT + filename.strip)
 
 		# Load includes
@@ -33,6 +35,7 @@ def compose(filename, replacements)
 			file.gsub!(/\[\[\[([^\]]+)\]\]\]/) {|_|
 				repeat_block $1, replacements
 			}
+		# Remove all replacements if no dictionary provided
 		else
 			file.gsub!(/\[\[\[([^\]]+)\]\]\]/) {|_|
 				""

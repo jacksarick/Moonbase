@@ -4,6 +4,8 @@ require_relative './utility.rb'
 require_relative './http-lib.rb'
 require_relative './composer.rb'
 
+
+# Function to run a script, and redirect a user to a page when done
 def attempt_script_and_redirect(script, redirect)
 	begin
 		# scripts get run from start's level
@@ -17,31 +19,42 @@ def attempt_script_and_redirect(script, redirect)
 	end
 end
 
+# The class that handles the "backend" of the server
 class Backend
+
+	# Set all varaiables on creation
 	def initialize(socket)
 		@socket = socket
 		@config = read_YAML("config.yml")
 		@password = File.open(@config["user-key"]).read
 	end
 
+	# Function for authenticating passwords
 	def authenticate(password)
 
+		# Empty passwords are not allowed
 		if password == "" or password == " "
 			@socket.print http_redirect "/no-auth.html"
 			return false
 
+		# If the password equals the hashed password, it's right
 		elsif "#{Digest::MD5.hexdigest(password)}" == "#{@password}"
 			return true
 
+		# Otherwise it's wrong
 		else
 			@socket.print http_redirect "/no-auth.html"
 			return false
 		end
 	end
 
+	# This is what would typically be called a router
 	def response(request, data)
 		if authenticate(data["password"])
 			case request[1]
+
+			# Instead of routing people to pages, though,
+			# It routes requets to actions
 
 			# Main dashboard
 			when "/dash"
