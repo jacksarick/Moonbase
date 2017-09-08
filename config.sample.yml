@@ -1,5 +1,5 @@
 address:  localhost
-port:     3000
+port:     8001
 root:     site
 projects: site/projects
 user-key: ./user/login.key
