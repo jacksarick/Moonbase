@@ -24,7 +24,7 @@ To start the server, run:
 $ ./start
 ```
 
-By default, Moonbase runs on `localhost:3000`.
+By default, Moonbase runs on `localhost:8001`.
 
 
 To regenerate the password, run:
@@ -39,7 +39,7 @@ $ ./key-gen.sh
 
 ```yaml
 address:  localhost
-port:     3000
+port:     8001
 root:     site
 projects: site/projects
 user-key: ./user/login.key
