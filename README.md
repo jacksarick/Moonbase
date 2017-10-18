@@ -3,6 +3,7 @@
 [![Build Status](https://travis-ci.org/studentserverspace/moonbase.svg?branch=master)](https://travis-ci.org/studentserverspace/moonbase)
 [![Code Climate](https://codeclimate.com/github/studentserverspace/moonbase/badges/gpa.svg)](https://codeclimate.com/github/studentserverspace/moonbase)
 
+*Note: Moonbase currently has large functionality problems that prevent it from working properly. The SSS team is currently debating a complete rewrite.*
 
 Moonbase is a website management and deployment system, designed for [Student Server Space](https://github.com/studentserverspace/). Moonbase is written in Ruby, and is designed for use on Ubuntu. Currently, Moonbase supports static and script-generated websites.
 
